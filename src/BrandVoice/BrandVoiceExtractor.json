@@ -1,0 +1,39 @@
+
+{
+  "@type": "Prompt",
+  "@id": "prompt01",
+  "name": "Base prompt",
+  "description": "Base prompt to be used for any situations",
+  "requirements": "These are the requirements.",
+  "businessProcess": "businessProcess",
+  "subjectMatter": "subjectMatter",
+  "deliverable": "deliverable",
+  "outputJsonSchema": "Base prompt to be used for any situations",
+  "outputExample": "Base prompt to be used for any situations",
+  "promptElement": [
+      {
+        "@type": "PromptItem",
+        "@id": "abc23",
+        "promptID": "prompt1",
+        "promptCategory": "role",
+        "position": 2,
+        "text": "You are a helpful agent"
+      },
+      {
+        "@type": "PromptItem",
+        "@id": "abc23",
+        "promptID": "prompt1",
+        "promptCategory": "role",
+        "position": 2,
+        "text": "You are a helpful agent"
+      },
+      {
+        "@type": "PromptItem",
+        "@id": "abc23",
+        "promptID": "prompt1",
+        "promptCategory": "role",
+        "position": 2,
+        "text": "You are a helpful agent"
+      }
+  ]
+}
