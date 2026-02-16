@@ -5,6 +5,13 @@
 */
 function promptRecordToPrompt(promptRecord){
 
+   if(typeof promptRecord == "string"){
+    try {
+      promptRecord = JSON.parse(promptRecord)
+    } catch{}
+  }
+
+  
   let content = ''
 
   // Assign title
