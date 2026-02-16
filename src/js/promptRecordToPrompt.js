@@ -22,15 +22,22 @@ function promptRecordToPrompt(promptRecord){
     let subPrompts = promptElements.filter(x => x.promptCategory == c)
     subPrompts.sort((a,b) => a.position < b.position)
     let text = subPrompts.map(x => x.text).join ('\n')
-    content += text
+    content += text + '\n'
   }
 
   // Add json schema
   if(promptRecord?.outputJsonSchema){
 
-    content += '## JSON Schema:\n'
-    content += `JSON ${promptRecord?.outputJsonSchema}`
+    let jsonSchema = promptRecord?.outputJsonSchema
     
+    try {
+      jsonSchema = jsonSchema.parse(jsonSchema)
+    } catch {}
+      
+    
+    content += '## JSON Schema:\n'
+    content += `JSON ${JSON.stringify(jsonSchema, null, 4)}`
+    content += '\n'
   }
 
   
