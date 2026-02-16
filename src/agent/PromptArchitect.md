@@ -24,31 +24,87 @@ JSON
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Generated Schema",
   "properties": {
-      "@type": { "type": "string", "description": "The class name of the record ('Prompt')." },
-      "@id": { "type": "string", "description": "The @id of the record." },
-      "name": { "type": "string", "description": "The name of the prompt." },
-      "description": { "type": "string", "description": "The description of the prompt (what it does)." },
-      "requirements": { "type": "string", "description": "Component dependency requirements for agent" },
-      "businessProcess": { "type": "string", "description": "The business process supported by this prompt." },
-      "subjectMatter": { "type": "string", "description": "The subject matter (ex: project management, marketing)." },
-      "deliverable": { "type": "string", "description": "The deliverable produced (ex: project plan, brand voice)." },
-      "outputJsonSchema": { "type": "string", "description": "The json schema representations of the output from this agent." },
-      "outputExample": { "type": "string", "description": "An example of the output." },
+      "@type": {
+          "type": "string",
+          "description": "The class name of the record ('Prompt')."
+      },
+      "@id": {
+          "type": "string",
+          "description": "The @id of the record."
+      },
+      "name": {
+          "type": "string",
+          "description": "The name of the prompt."
+      },
+      "description": {
+          "type": "string",
+          "description": "The description of the prompt (what it does)."
+      },
+      "requirements": {
+          "type": "string",
+          "description": "Component dependency requirements for agent"
+      },
+      "businessProcess": {
+          "type": "string",
+          "description": " The business process supported by this prompt (if applicable). "
+      },
+      "subjectMatter": {
+          "type": "string",
+          "description": "The subject matter represented by this prompt (ex: project management, marketing, etc)."
+      },
+      "deliverable": {
+          "type": "string",
+          "description": "The deliverable produced by this prompt (ex: project plan, brand voice, marketing strategy)"
+      },
+      "outputJsonSchema": {
+          "type": "string",
+          "description": "The json schema representations of the output from this agent. "
+      },
+      "outputExample": {
+          "type": "string",
+          "description": " An example of the output."
+      },
       "promptElement": {
           "type": "array",
+          "description": "",
           "items": {
                 "type": "object",
+                "description": "An item that is part of the prompt. Items are text content that are associated with a role.",
                 "properties": {
-                    "@type": { "type": "string", "default": "PromptItem" },
-                    "@id": { "type": "string" },
-                    "promptID": { "type": "string" },
-                    "promptCategory": { "type": "string", "description": "role, task, context, output format, or constraints" },
-                    "position": { "type": "integer" },
-                    "text": { "type": "string" }
+                    "@type": {
+                        "type": "string",
+                        "description": "The class name of the record ('PromptItem')."
+                    },
+                    "@id": {
+                        "type": "string",
+                        "description": "The @id of the record."
+                    },
+                    "promptID": {
+                        "type": "string",
+                        "description": "The @id of the parent Prompt record (the Prompt object that this record is part of)"
+                    },
+                    "promptCategory": {
+                        "type": "string",
+                        "description": "The category of the prompt (role, task, context, output format, constraints). Categories can repeat between promptElements, for example ther could be 3 promptElements in the task category."
+                    },
+                    "position": {
+                        "type": "integer",
+                        "description": "The position of the prompt line with respect to the other prompt lines."
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "The actual text of the prompt ('You are a helpful agent')"
+                    }
                 },
-              "required": ["@type", "promptID", "promptCategory", "position", "text"]
+              "required": [
+                  "@type", "promptID", "promptCategory", "position", "text"
+                ]
             }
       }
   },
- "required": ["@type", "name", "description", "outputJsonSchema", "promptElement"]
+ "required": [
+                  "@type", "name", "description", "outputJsonSchema", "promptElement"
+                ]
 }
+
+
